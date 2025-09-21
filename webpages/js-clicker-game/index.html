@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="main">
+            <div class="top">
+                <h3>Gem: <span class="gems-count">null</span></h3>
+                <img 
+                src="gem.png" class="gem" alt="Click Me!" 
+                onclick="incrementGem(event)" draggable="false"
+                >
+            </div>
+            <div class="bottom">
+                <div class="bar">
+                    <div class="upgrade-button" onclick="buyUpgrade()">
+                        <div class="upper-button">    
+                            <div class="button-inner">
+                                <img
+                                    src="pointer.png" alt="Purchase"
+                                    draggable="false" class="pointer-button"
+                                >
+                            </div>
+                            <div class="button-inner">
+                                Cost:&nbsp;&nbsp;<span class="cost">null</span>
+                            </div>
+                            <div class="button-inner">
+                                <span>Current Level:&nbsp;&nbsp;<span class="current-level">null</span></span>
+                                <span>Next Level:&nbsp;&nbsp;<span class="next-level">null</span></span>
+                            </div>
+                        </div>
+                        <div class="lower-button">
+                            <span>Current Gems/sec: <span class="gems-per-sec">null</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
