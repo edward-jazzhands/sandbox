@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="winner-label">
+            Playing
+        </div>
+        <div class="game-grid">
+            <div class="row">
+                <div class="cell" id="cell1" onclick="playTurn(event)"></div>
+                <div class="cell" id="cell2" onclick="playTurn(event)"></div>
+                <div class="cell" id="cell3" onclick="playTurn(event)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" id="cell4" onclick="playTurn(event)"></div>
+                <div class="cell" id="cell5" onclick="playTurn(event)"></div>
+                <div class="cell" id="cell6" onclick="playTurn(event)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" id="cell7" onclick="playTurn(event)"></div>
+                <div class="cell" id="cell8" onclick="playTurn(event)"></div>
+                <div class="cell" id="cell9" onclick="playTurn(event)"></div>
+            </div>
+        </div>
+        <div class="reset-bar">
+            <div class="reset-button" onclick="reset()">
+                Reset
+            </div>
+        </div>
+    </div>
+<script src="index.js"></script>
+</body>
+</html>

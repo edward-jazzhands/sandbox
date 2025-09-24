@@ -2,27 +2,27 @@
 // from 1 to 10 without any remainder.
 // What is the smallest positive number that is evenly divisible (divisible 
 // with no remainder) by all of the numbers from 1 to 20?
-
 const starttime = performance.now();
 let i = 1000;
 let ops = 0;
 while (true) {
     let found = true;
     for (let x = 1; x <= 20; x++) {
+        ops += 1;
         // if we find any one that isnt divisible, this iteration is no good
         if (i % x !== 0) {
-            i += 1;
+            i += 20; // increase by 20 at a time to save compute
             found = false;
-            break
-        } else {
-            ops += 1;
+            break;
         }
     }
     // if found is still true that means it made it through all numbers
     if (found === true) {
         console.log(i);
-        break
+        break;
     }
 }
-console.log(`Operations: ${ops}`)
-console.log(`Elapsed: ${(performance.now() - starttime).toFixed()}`)
+console.log(`Operations: ${ops}`);
+console.log(`Elapsed: ${(performance.now() - starttime).toFixed()}`);
+export {};
+//# sourceMappingURL=5.js.map
