@@ -30,21 +30,12 @@ function playTurn(event) {
     const winner = checkWinner();
     if (winner !== -1) {
         game_state = false;
-        if (winner !== 0) {
-            winner_label.textContent = `Winner: ${player_map[winner]}`;
-        }
-        else {
-            winner_label.textContent = `Draw game!`;
-        }
+        winner_label.textContent = winner !== 0 ? `Winner: ${player_map[winner]}` : `Draw game!`;
     }
-    if (current_player === 1) {
-        current_player = 2;
-    }
-    else {
-        current_player = 1;
-    }
+    current_player = current_player === 1 ? 2 : 1;
 }
 function computerTurn() {
+    null;
 }
 function reset() {
     const cells = document.querySelectorAll('.cell');
