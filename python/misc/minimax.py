@@ -5,10 +5,10 @@ from itertools import product
 import asyncio
 import concurrent.futures
 
+_executor: concurrent.futures.ThreadPoolExecutor = concurrent.futures.ThreadPoolExecutor()
+
 P = ParamSpec("P")
 R = TypeVar("R")
-
-_executor: concurrent.futures.ThreadPoolExecutor = concurrent.futures.ThreadPoolExecutor()
 
 # This is an example of how to make a decorator function that will
 # make a function run in a different thread using the ThreadPoolExecutor.
@@ -112,8 +112,9 @@ def minimax(
         maximizingPlayer: True if AI's turn (maximizing), False if human's turn (minimizing)
 
     Returns:
-        (best_score, best_move): A tuple containing the best score found
-        and the 'best move' which is another tuple of coordinates."""
+        (best_score, (best_move | None)): A tuple containing the best score found
+        and then EITHER the 'best move', which is another tuple of coordinates,
+        or `None` for when the minimax is recursing internally."""
 
     # remember this is just for logging how many times it ran total:
     global minimax_counter
@@ -210,7 +211,10 @@ def minimax(
 
             # place player on board at this spot:
             board[row][col] = player
-            # Then run the minimaxer with the new board:
+            # Then run the minimaxer with the new board.
+            # NOTE that the alpha and the beta might be changing with each loop!
+            # Remember that the for loop checks EVERY available move at this
+            # depth level, then updates the best score and alpha/betas.
             score, _, = minimax(board, depth + 1, not maximizingPlayer, alpha, beta)
             # When finished, undo the move:
             board[row][col] = 0
